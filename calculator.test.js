@@ -21,3 +21,13 @@ describe("handle new lines between numbers",()=>{
 test("Separate line with delimiter", () => {
       expect(scriptAdd("//;\n1;2")).toBe(3);
 })
+
+
+describe("Negative tests",()=> {
+    function scriptAddTest() {
+    scriptAdd("1\n2,-3");
+  }
+    test("negative not alowed", () => {
+    expect(scriptAddTest).toThrow('negatives not allowed | -3');
+    })
+})
