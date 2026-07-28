@@ -27,7 +27,13 @@ describe("Negative tests",()=> {
     function scriptAddTest() {
     scriptAdd("1\n2,-3");
   }
+  function scriptAddTest2() {
+    scriptAdd("1\n2,-3,-4");
+  }
     test("negative not alowed", () => {
     expect(scriptAddTest).toThrow('negatives not allowed | -3');
+    })
+    test("negative not alowed", () => {
+    expect(scriptAddTest2).toThrow('negatives not allowed | -3 -4');
     })
 })

@@ -1,6 +1,7 @@
 function Add(numbers){
 
     let result = 0;
+    let negativeNumber = [];
 
     if (numbers === "") return 0;
 
@@ -9,17 +10,25 @@ function Add(numbers){
     .map(Number)
 
     for(const number of numbersToAdd) {
-        console.log(number);
         if( number >= 0) {
             result = result + number;
-        }else{
-            throw new Error(
-                "negatives not allowed | " + number
-            );
+        }else {
+            negativeNumber.push(number);
         }
-    }
+        }
 
-    return result;
+    if( negativeNumber.length == 1) {
+        throw new Error("negatives not allowed | " + negativeNumber[0]);
+    }else if (negativeNumber.length > 1){
+        let stringNumbers = "";
+        for(const negative of negativeNumber){
+            stringNumbers = stringNumbers + " " + negative;
+        }
+        throw new Error("negatives not allowed |" + stringNumbers);
+    }
+    else{
+        return result;
+    }
 }
 
 module.exports = Add;
