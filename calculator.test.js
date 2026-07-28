@@ -17,3 +17,7 @@ describe("handle new lines between numbers",()=>{
       expect(scriptAdd("1,\n")).toBe(1);
       })
 })
+
+test("Separate line with delimiter", () => {
+      expect(scriptAdd("//;\n1;2")).toBe(3);
+})
