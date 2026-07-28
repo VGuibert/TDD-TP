@@ -1,11 +1,10 @@
-function Add(numbers1,numbers2){
-    const sum =  numbers1 + numbers2;
+function Add(numbers){
 
-    if( numbers1 == '' || numbers2 == ''){
-        return 0;
-    }else {
-        return sum;
-    }
+    if (numbers === "") return 0;
+    return numbers    
+    .split(/,|\r?\n/)    
+    .map(Number)    
+    .reduce((nx, n) => nx + n, 0);
 }
 
 module.exports = Add;
